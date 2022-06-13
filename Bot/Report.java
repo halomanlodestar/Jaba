@@ -4,16 +4,19 @@ import java.util.stream.Collectors;
 
 public class Report {
     String Username;
-    Region Region;
+    Regions Region;
+    public enum Regions {
+        AS, EU, NA
+    }
     // Constructor
-    public Report(String username, Report.Region region) {
+    public Report(String username, Regions region) {
         this.Username = username;
         this.Region = region;
     }
 
-    public void Execution(List<Report> Players) {
+    public static void Filter(List<Report> Players, Regions region) {
         Players.stream()
-            .filter(player -> Region.equals(player.Region))
+            .filter(player -> region.equals(player.Region))
             .collect(Collectors.toList())
             .forEach(System.out::println);
     }
@@ -21,8 +24,5 @@ public class Report {
     public String toString() {
         // TODO Auto-generated method stub
         return (Username + " : " + Region);
-    }
-    public static enum Region {
-        AS, EU, NA
     }
 }

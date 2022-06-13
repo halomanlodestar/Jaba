@@ -1,14 +1,15 @@
 package Test;
 import java.util.*;
-import Bot.*;
-// Elements
-import Bot.Report.Region;
+import Bot.Report;
+import Bot.Report.Regions;
 
-public class Main {
-
-    public static void main(String agrs[]) {
-        List<Report> L = List.of(
-            Report("LoadStar2476", Region.AS)
-        ); 
+class Main {
+    public static void main(String[] args) {
+        List<Report> Players = List.of(
+            new Report("LoadStar2476", Regions.AS),
+            new Report("ELite0412", Regions.AS),
+            new Report("Ambiennt", Regions.AS)
+        );
+        String n = Filter(Players, Regions.AS);
     }
 }
